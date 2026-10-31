@@ -67,3 +67,7 @@ The human observations originate from Koster, Pislár and colleagues, *Deep rein
 Release terms: MIT for this study's own code, CC-BY-4.0 for this study's generated data and documentation, subject to the named third-party terms. See `LICENSE` and `NOTICE.md`.
 
 Corresponding author: Chengyi Tu. Use the manuscript title and author list above when citing this unpublished study; no DOI for this study is claimed.
+
+## Archived software version
+
+Version **v1.0.0** is archived on Zenodo: https://doi.org/10.5281/zenodo.23836483 . The fixed version refers to Git commit `08fa430e8989e7602710aeca845e08fb4b4c7d72` and the `v1.0.0` release. Please cite the version DOI; the repository citation metadata records the same three authors, software title, MIT software license and version. Study data and third-party materials retain the terms in `NOTICE.md`.

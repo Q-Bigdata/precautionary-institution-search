@@ -5,6 +5,46 @@
     "sha256": "cc5b27552367fe339148f1accaf038375ea6ec7b35aa149d8a84c6f73aa6c4b8"
   },
   {
+    "path": "CITATION.cff",
+    "bytes": 596,
+    "sha256": "2dedae86ee25c5a3ac1d85317cb093b7a8b1e45a78f5cb1fceb72b7f6a128767"
+  },
+  {
+    "path": "FIGURE_INPUTS.json",
+    "bytes": 1266,
+    "sha256": "72f87f46dc6b865d8c1e4b1f8ce25f527c9a48899e4026c70dc113d763f296e5"
+  },
+  {
+    "path": "LICENSE",
+    "bytes": 1269,
+    "sha256": "598a6c5a3a7e61e8901bc5f94d49da8f6919c23e0c6fcb8506ddeb3d99d2f2ba"
+  },
+  {
+    "path": "NOTICE.md",
+    "bytes": 1778,
+    "sha256": "0c047de19c8e4be59b1e210b6251d917805064623f8a9aa41a3ada1f0a461e29"
+  },
+  {
+    "path": "PORTABILITY.md",
+    "bytes": 1065,
+    "sha256": "eaf68c0323c79ffa52270eb09a9c919995967a0de8f99601be132a003b181ca4"
+  },
+  {
+    "path": "PROTOCOL_CHECK.json",
+    "bytes": 2560,
+    "sha256": "9e8ee28a86eb3de5d38d24ccbbf61b1f34abe0ee30bb6f92584b35a1ef6e5421"
+  },
+  {
+    "path": "README.md",
+    "bytes": 7322,
+    "sha256": "933cdee77b33d19bba998fe7ed5a139e317f56926a392918261bdf8ac391a4c8"
+  },
+  {
+    "path": "VERIFICATION.json",
+    "bytes": 2089,
+    "sha256": "a3cd9c704510db686a2e323d71f4de16575aad7b01f9bcc429aee2b9b39f28c5"
+  },
+  {
     "path": "code/analyse_programs.py",
     "bytes": 2040,
     "sha256": "6735d659ece2326be88e822d285fc5309b76f80bca190208d0c85596d36e11e5"
@@ -165,26 +205,6 @@
     "sha256": "c17da325775524c63713e8233f7661dfe7e7d2b30b627d1b0f1de7529bbc1be4"
   },
   {
-    "path": "FIGURE_INPUTS.json",
-    "bytes": 1266,
-    "sha256": "72f87f46dc6b865d8c1e4b1f8ce25f527c9a48899e4026c70dc113d763f296e5"
-  },
-  {
-    "path": "LICENSE",
-    "bytes": 1269,
-    "sha256": "598a6c5a3a7e61e8901bc5f94d49da8f6919c23e0c6fcb8506ddeb3d99d2f2ba"
-  },
-  {
-    "path": "NOTICE.md",
-    "bytes": 1778,
-    "sha256": "0c047de19c8e4be59b1e210b6251d917805064623f8a9aa41a3ada1f0a461e29"
-  },
-  {
-    "path": "PORTABILITY.md",
-    "bytes": 1065,
-    "sha256": "eaf68c0323c79ffa52270eb09a9c919995967a0de8f99601be132a003b181ca4"
-  },
-  {
     "path": "prompts_revision/annotation_prompts.json",
     "bytes": 309464,
     "sha256": "56e85d704999e811c1cf12c2219de8785ec543c972e8a0b0e918f3d3589a7631"
@@ -198,16 +218,6 @@
     "path": "prompts_revision/model_generality_prompts.json",
     "bytes": 330177,
     "sha256": "c82890c7b02010a9283cfb5708bd6dbe953ca6892fdd9119cac1a482a6619c37"
-  },
-  {
-    "path": "PROTOCOL_CHECK.json",
-    "bytes": 2560,
-    "sha256": "9e8ee28a86eb3de5d38d24ccbbf61b1f34abe0ee30bb6f92584b35a1ef6e5421"
-  },
-  {
-    "path": "README.md",
-    "bytes": 6881,
-    "sha256": "d6213a18709e743b9ab100daebf3b611fcd5129e7b867280c429459acbfef4c3"
   },
   {
     "path": "requirements.txt",
@@ -1333,10 +1343,5 @@
     "path": "third_party/UPSTREAM_README.md",
     "bytes": 2288,
     "sha256": "80f90aa4e52122134da06ca8efda6b3a4d0a8ff0f1bd2e310a3db938772fe48e"
-  },
-  {
-    "path": "VERIFICATION.json",
-    "bytes": 2089,
-    "sha256": "a3cd9c704510db686a2e323d71f4de16575aad7b01f9bcc429aee2b9b39f28c5"
   }
 ]
