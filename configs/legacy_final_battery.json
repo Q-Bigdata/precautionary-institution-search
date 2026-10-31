@@ -1,0 +1,11 @@
+{
+  "SR_G": 1024,
+  "SR_SEEDS": 2,
+  "AL_SEEDS": 2,
+  "AL_EP": 200,
+  "AL_LAST": 40,
+  "EV_N": 600,
+  "EV_GENS": 400,
+  "EV_TAIL": 150,
+  "EV_SEEDS": 2
+}

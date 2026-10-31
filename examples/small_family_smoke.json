@@ -1,0 +1,41 @@
+[
+  {
+    "tid": "small_family_smoke",
+    "rule": {
+      "type": "prog",
+      "code": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Whole reservoir in proportion to last round's returns (equal if nobody returned).\"\"\"\n    p = prev_contrib.shape[1]\n    total = prev_contrib.sum(axis=1, keepdims=True)\n    share = np.where(total > 0, prev_contrib / np.maximum(total, 1e-12), 1.0 / p)\n    return pool[:, None] * share\n",
+      "wrap": null
+    },
+    "evals": [
+      {
+        "name": "AL_small",
+        "fam": "AL",
+        "seeds": [
+          9001
+        ],
+        "G": 8,
+        "episodes": 5,
+        "eval_last": 2
+      },
+      {
+        "name": "EV_small",
+        "fam": "EV",
+        "seeds": [
+          9002
+        ],
+        "N": 40,
+        "gens": 5,
+        "tail": 2
+      },
+      {
+        "name": "EMP_small",
+        "fam": "EMP",
+        "seeds": [
+          9003
+        ],
+        "G": 8,
+        "path": "emp_train_nointerp.npz"
+      }
+    ]
+  }
+]

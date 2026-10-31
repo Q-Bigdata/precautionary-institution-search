@@ -1,0 +1,65 @@
+[
+  {
+    "tid": "val|ref:proportional",
+    "rule": {
+      "type": "prog",
+      "code": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Whole reservoir in proportion to last round's returns (equal if nobody returned).\"\"\"\n    p = prev_contrib.shape[1]\n    total = prev_contrib.sum(axis=1, keepdims=True)\n    share = np.where(total > 0, prev_contrib / np.maximum(total, 1e-12), 1.0 / p)\n    return pool[:, None] * share\n",
+      "wrap": null
+    },
+    "evals": [
+      {
+        "name": "SR",
+        "fam": "SR",
+        "G": 1024,
+        "seeds": [
+          5001,
+          5002,
+          5003,
+          5004
+        ]
+      }
+    ]
+  },
+  {
+    "tid": "val|ref:k22",
+    "rule": {
+      "type": "prog",
+      "code": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Interpolating rule of Koster et al. (2025): w = (R/cap)^22 mixes equal and proportional shares.\"\"\"\n    p = prev_contrib.shape[1]\n    total = prev_contrib.sum(axis=1, keepdims=True)\n    prop = np.where(total > 0, prev_contrib / np.maximum(total, 1e-12), 1.0 / p)\n    w = (pool / cap)[:, None] ** 22\n    return pool[:, None] * (w / p + (1 - w) * prop)\n",
+      "wrap": null
+    },
+    "evals": [
+      {
+        "name": "SR",
+        "fam": "SR",
+        "G": 1024,
+        "seeds": [
+          5001,
+          5002,
+          5003,
+          5004
+        ]
+      }
+    ]
+  },
+  {
+    "tid": "val|shares_scoreonly:g24_i2_10",
+    "rule": {
+      "type": "prog",
+      "code": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    G, p = prev_offer.shape\n    if t == 1:\n        mem['rel'] = np.full((G, p), 0.6)\n        mem['streak0'] = np.zeros((G, p))\n        mem['trust'] = np.full((G,), 0.5)\n        mem['prev_pool'] = np.array(pool, copy=True)\n\n    safe_off = np.maximum(prev_offer, 1e-6)\n    frac = np.clip(prev_contrib / safe_off, 0.0, 1.0)\n    offered = prev_offer > 1e-9\n\n    mem['rel'] = np.where(offered, 0.76 * mem['rel'] + 0.24 * frac, 0.965 * mem['rel'])\n    rel = mem['rel']\n\n    zero_now = offered & (prev_contrib < 1e-9)\n    mem['streak0'] = np.where(zero_now, mem['streak0'] + 1, np.maximum(mem['streak0'] - 1, 0.0))\n    chronic_penalty = 1.0 / (1.0 + 0.25 * mem['streak0'])\n\n    tot_off = prev_offer.sum(axis=1)\n    tot_ret = prev_contrib.sum(axis=1)\n    pop_frac = np.where(tot_off > 1e-9, np.clip(tot_ret / np.maximum(tot_off, 1e-9), 0.0, 1.0), mem['trust'])\n    mem['trust'] = 0.75 * mem['trust'] + 0.25 * pop_frac\n    trust = mem['trust']\n\n    fullness = np.clip(pool / cap, 0.0, 1.0)\n    fcol = fullness[:, None]\n\n    floor = np.clip(0.10 + 0.07 * fcol, 0.10, 0.17)\n    score = floor + (1 - floor) * rel\n\n    weights = 0.55 * score + 0.45 * (prev_contrib + 0.1 * p) / p\n    weights = weights * chronic_penalty\n    weights = np.maximum(weights, 0.035)\n\n    skew = np.clip(1.75 - 0.9 * fcol, 0.85, 1.75)\n    weights = weights ** skew\n\n    wsum = weights.sum(axis=1, keepdims=True)\n    wsum = np.where(wsum <= 0, 1.0, wsum)\n    weights = weights / wsum\n\n    # pool trend: is the reservoir shrinking? if so be more cautious\n    shrinking = np.clip((mem['prev_pool'] - pool) / np.maximum(mem['prev_pool'], 1e-6), 0.0, 1.0)\n    mem['prev_pool'] = np.array(pool, copy=True)\n\n    retain = np.clip(0.55 - 0.55 * trust, 0.0, 0.5) * (1 - 0.7 * fullness)\n    retain = np.clip(retain + 0.3 * shrinking, 0.0, 0.65)\n    weights = weights * (1 - retain[:, None])\n\n    return weights\n",
+      "wrap": "shares"
+    },
+    "evals": [
+      {
+        "name": "SR",
+        "fam": "SR",
+        "G": 1024,
+        "seeds": [
+          5001,
+          5002,
+          5003,
+          5004
+        ]
+      }
+    ]
+  }
+]

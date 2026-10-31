@@ -1,0 +1,312 @@
+{
+ "labels": {
+  "scoreonly": "amount, score cards",
+  "blind_tele": "amount, telemetry (run 1)",
+  "amount_tele_rep_s21": "amount, telemetry (run 2)",
+  "amount_tele_rep_s22": "amount, telemetry (run 3)",
+  "distill_tele": "amount, black-box description",
+  "zeroshot": "amount, zero-shot",
+  "SRonly_tele": "amount, SR-only objective",
+  "seeded_tele": "amount, seeded",
+  "shares_tele": "share, telemetry (run 1)",
+  "shares_tele_rep2": "share, telemetry (run 2)",
+  "shares_scoreonly": "share, score cards"
+ },
+ "run_group": {
+  "scoreonly": "amount",
+  "blind_tele": "amount",
+  "amount_tele_rep_s21": "amount",
+  "amount_tele_rep_s22": "amount",
+  "distill_tele": "amount",
+  "zeroshot": "amount",
+  "SRonly_tele": "amount",
+  "seeded_tele": "seeded",
+  "shares_tele": "share",
+  "shares_tele_rep2": "share",
+  "shares_scoreonly": "share"
+ },
+ "k22_fresh": 0.3563634407565931,
+ "prop_fresh": 0.25606675092860504,
+ "minimal_fresh": 0.31595901899836926,
+ "fig2b_items": [
+  [
+   "black box, best trajectory",
+   "es:seed22",
+   "es"
+  ],
+  [
+   "black box, trajectory 5",
+   "es:seed5",
+   "es"
+  ],
+  [
+   "black box, trajectory 4",
+   "es:seed4",
+   "es"
+  ],
+  [
+   "black box, trajectory 3",
+   "es:seed3",
+   "es"
+  ],
+  [
+   "black box, trajectory 2",
+   "es:seed2",
+   "es"
+  ],
+  [
+   "black box, stalled trajectory",
+   "es:seed1",
+   "es"
+  ],
+  [
+   "best blind share (score cards)",
+   "shares_scoreonly:g21_i1_4",
+   "share"
+  ],
+  [
+   "best blind share (telemetry 2)",
+   "shares_tele_rep2:g20_i3_14",
+   "share"
+  ],
+  [
+   "best blind share (telemetry 1)",
+   "shares_tele:g26_i3_15",
+   "share"
+  ],
+  [
+   "three-term rule (distilled)",
+   "var:minimal",
+   "minimal"
+  ],
+  [
+   "best seeded program",
+   "seeded_tele:g25_i3_13",
+   "seeded"
+  ],
+  [
+   "power-law weight, k = 29.6",
+   "param:power_best",
+   "prop"
+  ],
+  [
+   "interpolating rule (published)",
+   "ref:k22",
+   "k22"
+  ],
+  [
+   "best blind amount (score cards)",
+   "scoreonly:g7_i3_27",
+   "amount"
+  ],
+  [
+   "best blind amount (telemetry 1)",
+   "blind_tele:g20_i3_14",
+   "amount"
+  ],
+  [
+   "proportional",
+   "ref:proportional",
+   "prop"
+  ],
+  [
+   "equal",
+   "ref:equal",
+   "equal"
+  ]
+ ],
+ "fig4c_items": [
+  [
+   "full program",
+   "shares_scoreonly:g24_i2_10"
+  ],
+  [
+   "exponent 0.85",
+   "var:skew_const_0.85"
+  ],
+  [
+   "exponent 1 (no sharpening)",
+   "ko2:no_sharpen"
+  ],
+  [
+   "exponent 1.3",
+   "var:skew_const_1.3"
+  ],
+  [
+   "exponent 1.75",
+   "var:skew_const_1.75"
+  ],
+  [
+   "exponent rising with pool",
+   "var:skew_increasing"
+  ],
+  [
+   "no reputation, floor, penalty",
+   "var:no_rep_floor_penalty"
+  ],
+  [
+   "three-term rule",
+   "var:minimal"
+  ]
+ ],
+ "fig5b_items": [
+  [
+   "ref:k22",
+   "k22"
+  ],
+  [
+   "seeded_tele:g25_i3_13",
+   "seeded"
+  ],
+  [
+   "shares_scoreonly:g21_i1_4",
+   "share"
+  ],
+  [
+   "es:seed2",
+   "es"
+  ],
+  [
+   "es:seed3",
+   "es"
+  ],
+  [
+   "es:seed4",
+   "es"
+  ],
+  [
+   "es:seed5",
+   "es"
+  ],
+  [
+   "es:seed22",
+   "es"
+  ]
+ ],
+ "fig5c_sets": [
+  [
+   "SR_base",
+   "retained"
+  ],
+  [
+   "SR_v3s2",
+   "alt.\nstart 2"
+  ],
+  [
+   "SR_v3s6",
+   "alt.\nstart 6"
+  ],
+  [
+   "SR_v2s3",
+   "27-mom.\n1"
+  ],
+  [
+   "SR_v2s4",
+   "27-mom.\n2"
+  ],
+  [
+   "prof_SR_rho08",
+   "$\\rho$ = 0.8"
+  ],
+  [
+   "prof_SR_rho05",
+   "$\\rho$ = 0.5"
+  ]
+ ],
+ "fig5c_items": [
+  [
+   "ref:k22",
+   "k22"
+  ],
+  [
+   "seeded_tele:g25_i2_10",
+   "seeded"
+  ],
+  [
+   "shares_scoreonly:g21_i1_4",
+   "share"
+  ],
+  [
+   "es:seed22",
+   "es"
+  ],
+  [
+   "es:seed5",
+   "es"
+  ]
+ ],
+ "cov_group": {
+  "ref:equal": "equal",
+  "ref:proportional": "prop",
+  "ref:k22": "k22",
+  "param:power_best": "prop",
+  "shares_scoreonly:g24_i2_10": "share",
+  "shares_scoreonly:g21_i1_4": "share",
+  "shares_tele:g26_i3_15": "share",
+  "shares_tele_rep2:g20_i3_14": "share",
+  "seeded_tele:g25_i2_10": "seeded",
+  "scoreonly:g14_i0_0": "amount",
+  "es:seed1": "es",
+  "es:seed2": "es",
+  "es:seed3": "es",
+  "es:seed4": "es",
+  "es:seed5": "es",
+  "es:seed22": "es"
+ },
+ "diag_groups": [
+  [
+   "ref:proportional",
+   "prop"
+  ],
+  [
+   "ref:k22",
+   "k22"
+  ],
+  [
+   "shares_scoreonly:g24_i2_10",
+   "share"
+  ],
+  [
+   "seeded_tele:g25_i2_10",
+   "seeded"
+  ],
+  [
+   "es:seed22",
+   "es"
+  ],
+  [
+   "scoreonly:g14_i0_0",
+   "amount"
+  ]
+ ],
+ "short": {
+  "ref:proportional": "proportional",
+  "ref:k22": "interpolating",
+  "shares_scoreonly:g24_i2_10": "best share",
+  "seeded_tele:g25_i2_10": "best seeded",
+  "es:seed22": "black box",
+  "scoreonly:g14_i0_0": "best amount"
+ },
+ "framing_order": [
+  [
+   "zs_orig",
+   "original prompt"
+  ],
+  [
+   "zs_neutral",
+   "neutral wording"
+  ],
+  [
+   "zs_growth",
+   "growth stated"
+  ],
+  [
+   "zs_model2__haiku",
+   "smaller model"
+  ],
+  [
+   "zs_model2__opus",
+   "larger model, reasoning"
+  ]
+ ]
+}

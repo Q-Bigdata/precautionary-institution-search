@@ -1,0 +1,55 @@
+{
+  "fig1": [
+    "figure_meta_rev.json",
+    "frozen_validation.csv",
+    "validity_table.csv"
+  ],
+  "fig2": [
+    "figure_meta_rev.json",
+    "frozen_validation.csv",
+    "reference_rescored.json",
+    "running_best.csv"
+  ],
+  "fig3": [
+    "figure_meta_rev.json",
+    "framing_controls.csv",
+    "frozen_validation.csv",
+    "lineage.csv",
+    "norm_design.json",
+    "normalisation_results.csv",
+    "prior_by_run_rev.csv",
+    "program_classification.csv"
+  ],
+  "fig4": [
+    "figure_meta_rev.json",
+    "forgiveness_extended.csv",
+    "frozen_validation.csv",
+    "inplay_offer_curves.json",
+    "probe_weights_rev.json"
+  ],
+  "fig5": [
+    "all_programs_rescored_rev.csv",
+    "calibration_sensitivity_eff.csv",
+    "emp_coverage.csv",
+    "figure_meta_rev.json",
+    "frozen_validation.csv",
+    "reference_rescored.json"
+  ],
+  "edfig1": [
+    "diagnostic_curves.json",
+    "diagnostics_AL_EV.csv",
+    "figure_meta_rev.json",
+    "frozen_validation.csv"
+  ],
+  "edfig2": [
+    "diagnostic_curves.json",
+    "diagnostics_AL_EV.csv",
+    "figure_meta_rev.json",
+    "frozen_validation.csv"
+  ],
+  "edfig3": [
+    "figure_meta_rev.json",
+    "frozen_validation.csv",
+    "robustness_matrix.json"
+  ]
+}

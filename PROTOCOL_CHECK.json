@@ -1,0 +1,86 @@
+{
+  "scope": "One historical proportional baseline, SR/AL/EV means. Not every historical result.",
+  "matching_configuration": {
+    "configuration": "recovered_legacy_protocol",
+    "parameters": {
+      "N": 600,
+      "gens": 400,
+      "tail": 150
+    },
+    "seeds": [
+      301,
+      302
+    ],
+    "rule_source": "results_original/final_evaluation/full_items.json:ref:proportional",
+    "per_seed": [
+      0.2553992866903069,
+      0.25304304058486116
+    ],
+    "eff": 0.25422116363758407,
+    "recorded_eff": 0.25422116363758407,
+    "abs_difference": 0.0,
+    "evidence": "Original submission Methods explicitly specifies two EV seeds; both full records and manuscript use N=600/gens=400; tail=150 matches recorded proportional EV mean."
+  },
+  "diagnostic_comparisons": [
+    {
+      "configuration": "manuscript",
+      "rule_source": "results_original/final_evaluation/full_items.json:ref:proportional",
+      "parameters": {
+        "N": 600,
+        "gens": 400,
+        "tail": 150
+      },
+      "seeds": [
+        301,
+        302,
+        303
+      ],
+      "per_seed": [
+        0.2553992866903069,
+        0.25304304058486116,
+        0.25695036524847026
+      ],
+      "eff": 0.2551308975078795,
+      "recorded_eff": 0.25422116363758407,
+      "abs_difference": 0.000909733870295415,
+      "seconds": 10.773483991622925
+    },
+    {
+      "configuration": "legacy_script_defaults",
+      "rule_source": "results_original/final_evaluation/full_items.json:ref:proportional",
+      "parameters": {
+        "N": 1000,
+        "gens": 600,
+        "tail": 200
+      },
+      "seeds": [
+        301,
+        302,
+        303
+      ],
+      "per_seed": [
+        0.25762188997325186,
+        0.25684101148575816,
+        0.254188651750122
+      ],
+      "eff": 0.25621718440304403,
+      "recorded_eff": 0.25422116363758407,
+      "abs_difference": 0.0019960207654599604,
+      "seconds": 17.236926555633545
+    }
+  ],
+  "conclusion": "Runtime overrides were not preserved as a named configuration in the supplied code. The legacy script defaults do not describe the archived run.",
+  "manuscript_source": "submission_NatComputSci_Idea5/02_latex_source/methods.tex:36",
+  "additional_SR_AL_checks": {
+    "SR": {
+      "recomputed": 0.35833173563377546,
+      "recorded": 0.35833173563377546,
+      "abs_difference": 0.0
+    },
+    "AL": {
+      "recomputed": 0.3798016426105336,
+      "recorded": 0.3798016426105336,
+      "abs_difference": 0.0
+    }
+  }
+}

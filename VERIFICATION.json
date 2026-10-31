@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-31",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "packages": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.0"
+  },
+  "syntax_checked_python_files": 17,
+  "game_edge_cases_passed": true,
+  "rule_factory_types_checked": [
+    "prog",
+    "param",
+    "es"
+  ],
+  "frozen_SR_comparisons": [
+    {
+      "rule": "ref:proportional",
+      "SR_eff_recomputed": 0.3654227005633467,
+      "SR_eff_recorded": 0.3654227005633467,
+      "abs_difference": 0.0,
+      "seeds": 4,
+      "games_per_seed": 1024
+    },
+    {
+      "rule": "ref:k22",
+      "SR_eff_recomputed": 0.45083716141979974,
+      "SR_eff_recorded": 0.4508371614197997,
+      "abs_difference": 5.551115123125783e-17,
+      "seeds": 4,
+      "games_per_seed": 1024
+    },
+    {
+      "rule": "shares_scoreonly:g24_i2_10",
+      "SR_eff_recomputed": 0.40326450961816884,
+      "SR_eff_recorded": 0.4032645096181688,
+      "abs_difference": 5.551115123125783e-17,
+      "seeds": 4,
+      "games_per_seed": 1024
+    }
+  ],
+  "small_AL_EV_EMP_execution_passed": true,
+  "figures": {
+    "count": 8,
+    "output_formats": [
+      "PDF",
+      "PNG"
+    ],
+    "dimensions_match_archive": true,
+    "visual_review": "Main data positions, trends, labels and heatmap cells agree; font rasterization differs.",
+    "byte_identical": false
+  },
+  "scope": "Recorded-data figure regeneration, targeted numerical checks and reduced-budget execution checks. No fresh LLM search or complete experimental replication.",
+  "legacy_proportional_baseline": {
+    "SR": {
+      "recomputed": 0.35833173563377546,
+      "recorded": 0.35833173563377546,
+      "abs_difference": 0.0
+    },
+    "AL": {
+      "recomputed": 0.3798016426105336,
+      "recorded": 0.3798016426105336,
+      "abs_difference": 0.0
+    },
+    "EV": {
+      "recomputed": 0.25422116363758407,
+      "recorded": 0.25422116363758407,
+      "abs_difference": 0.0
+    }
+  }
+}

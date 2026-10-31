@@ -1,0 +1,15 @@
+{
+ "blind": {
+  "equal": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Equal shares of the whole reservoir.\"\"\"\n    p = prev_contrib.shape[1]\n    return np.repeat(pool[:, None] / p, p, axis=1)\n",
+  "proportional": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Whole reservoir in proportion to last round's returns (equal if nobody returned).\"\"\"\n    p = prev_contrib.shape[1]\n    total = prev_contrib.sum(axis=1, keepdims=True)\n    share = np.where(total > 0, prev_contrib / np.maximum(total, 1e-12), 1.0 / p)\n    return pool[:, None] * share\n"
+ },
+ "seeded": {
+  "equal": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Equal shares of the whole reservoir.\"\"\"\n    p = prev_contrib.shape[1]\n    return np.repeat(pool[:, None] / p, p, axis=1)\n",
+  "proportional": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Whole reservoir in proportion to last round's returns (equal if nobody returned).\"\"\"\n    p = prev_contrib.shape[1]\n    total = prev_contrib.sum(axis=1, keepdims=True)\n    share = np.where(total > 0, prev_contrib / np.maximum(total, 1e-12), 1.0 / p)\n    return pool[:, None] * share\n",
+  "powermix": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Mix equal and proportional shares with weight w = (R/C)^22 on equal shares.\"\"\"\n    p = prev_contrib.shape[1]\n    total = prev_contrib.sum(axis=1, keepdims=True)\n    prop = np.where(total > 0, prev_contrib / np.maximum(total, 1e-12), 1.0 / p)\n    w = (pool / cap)[:, None] ** 22\n    return pool[:, None] * (w / p + (1 - w) * prop)\n"
+ },
+ "blind_shares": {
+  "equal": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Equal weights.\"\"\"\n    return np.ones_like(prev_contrib)\n",
+  "proportional": "def allocate(pool, prev_offer, prev_contrib, t, mem, cap, growth):\n    \"\"\"Weights proportional to last round's returns.\"\"\"\n    return prev_contrib.copy()\n"
+ }
+}
